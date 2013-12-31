@@ -38,6 +38,17 @@ module.exports = function(grunt) {
             }
         },
 
+        jsbeautifier: {
+            files: ['dest/**/*.html'],
+            options: {
+                html: {
+                    indentChar: ' ',
+                    indentSize: 2,
+                    preserveNewlines: false
+                }
+            }
+        },
+
         markdown: {
             alloy: {
                 options: {
@@ -62,7 +73,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-jsbeautifier');
 
-    grunt.registerTask('default', ['clean', 'copy', 'markdown']);
+    grunt.registerTask('default', ['clean', 'copy', 'markdown', 'jsbeautifier']);
 
 };
