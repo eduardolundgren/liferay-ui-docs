@@ -48,7 +48,9 @@ module.exports = function(grunt) {
 
         watch: {
             files: [
-                '<%= markdown.alloy.options.src %>'
+                'Gruntfile.js',
+                '<%= markdown.alloy.options.src %>',
+                '<%= copy.images.src %>'
             ],
             tasks: ['default']
         }
