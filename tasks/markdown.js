@@ -71,7 +71,7 @@ module.exports = function(grunt) {
 
                     content = parseTemplate(options.templateContent, {
                         content: content,
-                        style: options.cssContent,
+                        style: options.cssContent
                     });
                     grunt.log.ok(outputPath);
                     grunt.file.write(outputPath, content);
