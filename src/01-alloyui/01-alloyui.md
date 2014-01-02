@@ -181,6 +181,23 @@ Like on previous versions of Liferay, this functionality uses a `<liferay-ui:sea
 </aui:nav-bar>
 ```
 
+> Reference [jukebox/blob/master/sdk/portlets/jukebox-portlet/docroot/html/artists/toolbar.jsp#L25](https://github.com/eduardolundgren/jukebox/blob/master/sdk/portlets/jukebox-portlet/docroot/html/artists/toolbar.jsp#L25)
+
+Other options can be passed to `<liferay-ui:search-toggle>`:
+
+Option              | Description
+:------------------ | :-----------------------------------------------------------------
+``cssClass``        | The css class to be applied to the nav bar search wrapper element.
+``id``              | A custom id to be applied on the nav bar search wrapper element.
+``file``            | A custom file path to be used.
+``searchContainer`` | A SearchContainer instance.
+
+```jsp
+<aui:nav-bar>
+    <aui:nav-bar-search cssClass="pull-right" file="/html/portlet/directory/user_search.jsp" searchContainer="<%= userSearchContainer %>" />
+</aui:nav-bar>
+```
+
 ### Application display templates
 ### Calendar
 ### Control panel
