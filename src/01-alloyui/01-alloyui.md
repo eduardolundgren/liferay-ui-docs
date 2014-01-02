@@ -153,6 +153,84 @@ The new add panel now provides ability to add content, applications and pages fr
 
 > Add page panel: Pages can be created from this panel, the page type and layout can be selected.
 
+### Navbar
+
+In order to standardize navigation through the portal, one of the new components put in place is the new `<aui:nav-bar>`, `<aui:nav>` and `<aui:nav-item>` taglibs. Navbars are responsive meta components that serve as navigation headers for your application or site.
+
+![](images/navbar.png)
+
+```jsp
+<aui:nav-bar>
+    <aui:nav>
+        <aui:nav-item href="http://liferay.com" label="Liferay website" selected='<%= true %>' />
+    </aui:nav>
+</aui:nav-bar>
+```
+
+> Reference [jukebox/blob/master/sdk/portlets/jukebox-portlet/docroot/html/artists/toolbar.jsp#L25](https://github.com/eduardolundgren/jukebox/blob/master/sdk/portlets/jukebox-portlet/docroot/html/artists/toolbar.jsp#L25)
+
+Other options can be passed to `<aui:nav-bar>`:
+
+Option              | Description
+:------------------ | :-----------------------------------------------------------------
+``cssClass``        | The css class to be applied to the nav bar search wrapper element.
+``id``              | A custom id to be applied on the nav bar search wrapper element.
+
+Other options can be passed to `<aui:nav>`:
+
+Option              | Description
+:------------------ | :-----------------------------------------------------------------
+``ariaLabel``       | W3C ARIA label for accessibility, see [ARIA States and Properties](www.w3.org/TR/wai-aria/states_and_properties).
+``ariaRole``        | W3C ARIA role for accessibility, see [ARIA States and Properties](www.w3.org/TR/wai-aria/states_and_properties).
+``collapsible``     | Add ability to be collapsed (and are toggleable) in mobile views and become horizontal as the available viewport width increases.
+``cssClass``        | The css class to be applied to the nav bar search wrapper element.
+``file``            | A custom file path to be used.
+``icon``            | Icon to be displayed on the collapsible panel in order to toggle the view.
+``id``              | A custom id to be applied on the nav bar search wrapper element.
+``searchContainer`` | A SearchContainer instance.
+``useNamespace``    | Whether will use the portlet namespace on the element.
+
+Other options can be passed to `<aui:nav-item>`:
+
+Option                  | Description
+:---------------------- | :-----------------------------------------------------------------
+``anchorCssClass``      | The css class to be applied to the nav bar search anchor element.
+``anchorData``          | Map object to be translated to HTML5 `data-` attributes to the anchor element.
+``anchorId``            | A custom id to be applied on the nav bar search anchor element.
+``ariaLabel``           | W3C ARIA label for accessibility, see [ARIA States and Properties](www.w3.org/TR/wai-aria/states_and_properties).
+``ariaRole``            | W3C ARIA role for accessibility, see [ARIA States and Properties](www.w3.org/TR/wai-aria/states_and_properties).
+``cssClass``            | The css class to be applied to the nav bar search wrapper element.
+``data``                | Map object to be translated to HTML5 `data-` attributes to the wrapper element.
+``dropdown``            | Whether can host nested nav items to be displayed as a dropdown menu.
+``href``                | The href of the anchor element.
+``iconCssClass``        | The icon css class to be displayed next to the label.
+``id``                  | A custom id to be applied on the nav bar search wrapper element.
+``label``               | The label of the nav item.
+``localizeLabel``       | Whether the label should be localized.
+``selected``            | Whether the nav item is selected.
+``state``               | The state of the nav item, could be `active` or `selected`.
+``title``               | The title of the anchor.
+``toggle``              | Toggle dropdown menu visibility.
+``useDialog``           | Open the anchor href inside a dialog.
+``wrapDropDownMenu``    | Wraps dropdown menu with a `<ul>`.
+
+### Navbar dropdown
+
+A `<aui:nav-item>` can be nested in order to produce a dropdown menu, for instance:
+
+![](images/navbar-dropdown.png)
+
+```jsp
+<aui:nav-bar>
+    <aui:nav>
+        <aui:nav-item label="Liferay website" dropdown='<%= true %>'>
+            <aui:nav-item href="http://liferay.com" label="Liferay portal" />
+            <aui:nav-item href="http://in.liferay.com" label="Liferay Social Office" />
+        </aui:nav-item>
+    </aui:nav>
+</aui:nav-bar>
+```
+
 ### Advanced search
 
 The new UI of advanced search provides a faster way to expand the search options.
@@ -210,9 +288,6 @@ Option              | Description
 ### Liferay panel
 ### Mobile preview
 ### Modal
-### Navbar
-### Navbar dropdown
-### Navbar search
 ### Paginator
 ### Popover
 ### Recycle bin
