@@ -138,6 +138,21 @@ Bootstrap also provides nice effects for images: rounding the borders, making th
 It's worth mentioning that, before you save the content, the WYSIWYG editor is not aware of Bootstrap, so just getting out of the "Source" mode won't be enough to preview your changes. What you can do is click the "Basic Preview" button at the top of the web content form. For more information check [this blog post](https://www.liferay.com/web/jorge.ferrer/blog/-/blogs/new-in-6-2-bootstrap-even-in-web-content) by Jorge Ferrer.
 
 ### Add panel
+
+The new add panel now provides ability to add content, applications and pages from the same place.
+
+![](images/add-content.png)
+
+> Add content panel: Lists all recent content and its previews, the user can drag and drop any of them to display on the portal.
+
+![](images/add-apps.png)
+
+> Add application panel: Lists all available portlets, the user can drag and drop any of them to display on the portal.
+
+![](images/add-page.png)
+
+> Add page panel: Pages can be created from this panel, the page type and layout can be selected.
+
 ### Advanced search
 ### Application display templates
 ### Calendar
