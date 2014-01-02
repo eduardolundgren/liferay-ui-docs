@@ -154,6 +154,33 @@ The new add panel now provides ability to add content, applications and pages fr
 > Add page panel: Pages can be created from this panel, the page type and layout can be selected.
 
 ### Advanced search
+
+The new UI of advanced search provides a faster way to expand the search options.
+
+![](images/advanced-search.png)
+
+Like on previous versions of Liferay, this functionality uses a `<liferay-ui:search-toggle>` taglib. The search toggle taglib can be placed inside a `<aui:nav-bar>` wrapped by a `<aui:nav-bar-search>` outputting Bootstrap HTML markup in order to provide the look and feel shown above.
+
+```jsp
+<aui:nav-bar>
+    <aui:nav-bar-search cssClass="pull-right">
+        <div class="form-search">
+            ...
+            <liferay-ui:search-toggle
+                buttonLabel="search"
+                displayTerms="<%= displayTerms %>"
+                id="<%= renderResponse.getNamespace() %>"
+            >
+                <aui:fieldset>
+                    <aui:input label="name" />
+                    <aui:input name="bio" />
+                </aui:fieldset>
+            </liferay-ui:search-toggle>
+        </div>
+    </aui:nav-bar-search>
+</aui:nav-bar>
+```
+
 ### Application display templates
 ### Calendar
 ### Control panel
