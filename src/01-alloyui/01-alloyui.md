@@ -85,3 +85,77 @@ For more information visit [AlloyUI GitHub](http://github.com/liferay/alloy-ui) 
 * Zeno Rocha (Brazil)
 
 ![](images/team.png)
+
+# Liferay
+
+## New features of Liferay UI
+
+Liferay 6.2 brings a set of improvements to the usability and user interface. Several components were rethought, some of them were inherited from AlloyUI 2.0 and others were developed directly on the portal. Other noticeable features are changes in the control panel, the number of pop-ups were reduced and responsive web design support. All that to make the portal more usable and versatile and to allow it to keep growing without increasing the complexity. This tutorial will go through those changes, showing examples and screen-shots to show the end result.
+
+> A good resource in order to have a deep understanding about all the technical changes that happened is to follow the original ticket story on Liferay's issue tracker [https://issues.liferay.com/browse/LPS-34012](https://issues.liferay.com/browse/LPS-34012).
+
+### Twitter Bootstrap
+
+Liferay provides support for [Twitter Bootstrap](http://liferay.github.io/alloy-bootstrap) CSS and HTML markup out of the box. The JavaScript to add behavior to the Bootstrap components are powered by [AlloyUI](http://http://alloyui.com) instead of jQuery. AlloyUI uses a 1:1 translation from Less to [Sass](http://sass-lang.com) available on [alloy-bootstrap](https://github.com/liferay/alloy-bootstrap) repository, also adds minimal extra style definitions for AlloyUI. Some of the benefits of using Bootstrap are:
+
+* Themes built for Liferay can be based on Bootstrap themes. And there are quite a few of them: [wrapbootstrap](https://wrapbootstrap.com), [bootswatch](https://http://bootswatch.com).
+* Portlet developers can use the Bootstrap mark-up and Bootstrap components to build a nice looking UI faster. That include using responsive layouts.
+* Content authors can use Bootstrap mark-up and styles to create beautiful looking advanced content that looks nice and is consistent with the rest of the UI.
+
+The ability to use Bootstrap for web content is actually a side effect of its use everywhere else, it's definitely a very useful side effect. Twitter Bootstrap already has good documentation that you can access following the links above. Any HTML markup can be copied from [Twitter Bootstrap](http://liferay.github.io/alloy-bootstrap) documentation page and pasted inside Liferay portlets or contents. This facilitates development process and gives security to all layers of developers, from the web designers to those who hates aligning pixels during development.
+
+For instance, when creating a table in a web content, without Bootstrap capabilities it looks like this:
+
+```html
+<table border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
+```
+
+![](images/bootstrap-table-before.png)
+
+With Bootstrap, the markup is simpler and produces a better result:
+
+
+```html
+<table class="table table-striped table-bordered">
+```
+
+![](images/bootstrap-table-after.png)
+
+Each of these values of the class attributes provides one feature:
+
+* `table` sets the base styles
+* `table-striped` colors alternative rows differently
+* `table-bordered` draws the borders around the table
+
+Bootstrap also provides nice effects for images: rounding the borders, making them a circle and adding a polaroid-like frame around it. In order to benefit from this you don't even need to edit the HTML.
+
+![](images/bootstrap-image-styles.png)
+
+* `img-rounded` for rounded corners
+* `img-circle` to get an image with the shape of a circle
+* `img-polaroid` to get a nice frame around the image
+
+It's worth mentioning that, before you save the content, the WYSIWYG editor is not aware of Bootstrap, so just getting out of the "Source" mode won't be enough to preview your changes. What you can do is click the "Basic Preview" button at the top of the web content form. For more information check [this blog post](https://www.liferay.com/web/jorge.ferrer/blog/-/blogs/new-in-6-2-bootstrap-even-in-web-content) by Jorge Ferrer.
+
+### Add panel
+### Advanced search
+### Application display templates
+### Calendar
+### Control panel
+### Dockbar
+### Font awesome icons
+### Form navigator
+### Input date
+### Input localized
+### Input time
+### Liferay panel
+### Mobile preview
+### Modal
+### Navbar
+### Navbar dropdown
+### Navbar search
+### Paginator
+### Popover
+### Recycle bin
+### Search container
+### Tooltip
