@@ -187,7 +187,7 @@ Option              | Description
 ``ariaLabel``       | W3C ARIA label for accessibility, see [ARIA States and Properties](www.w3.org/TR/wai-aria/states_and_properties).
 ``ariaRole``        | W3C ARIA role for accessibility, see [ARIA States and Properties](www.w3.org/TR/wai-aria/states_and_properties).
 ``collapsible``     | Add ability to be collapsed (and are toggleable) in mobile views and become horizontal as the available viewport width increases.
-``cssClass``        | The css class to be applied to the nav bar search wrapper element.
+``cssClass``        | The css class to be applied to the nav search wrapper element.
 ``file``            | A custom file path to be used.
 ``icon``            | Icon to be displayed on the collapsible panel in order to toggle the view.
 ``id``              | A custom id to be applied on the nav bar search wrapper element.
@@ -203,7 +203,7 @@ Option                  | Description
 ``anchorId``            | A custom id to be applied on the nav bar search anchor element.
 ``ariaLabel``           | W3C ARIA label for accessibility, see [ARIA States and Properties](www.w3.org/TR/wai-aria/states_and_properties).
 ``ariaRole``            | W3C ARIA role for accessibility, see [ARIA States and Properties](www.w3.org/TR/wai-aria/states_and_properties).
-``cssClass``            | The css class to be applied to the nav bar search wrapper element.
+``cssClass``            | The css class to be applied to the nav item search wrapper element.
 ``data``                | Map object to be translated to HTML5 `data-` attributes to the wrapper element.
 ``dropdown``            | Whether can host nested nav items to be displayed as a dropdown menu.
 ``href``                | The href of the anchor element.
@@ -408,7 +408,7 @@ Available `<liferay-ui:input-date>` options:
 
 Option             | Description
 :----------------- | :----------------------------------------------------------------------
-``cssClass``       | The css class to be applied to the nav bar search wrapper element.
+``cssClass``       | The css class to be applied to the input date wrapper element.
 ``disabled``       | Whether the input date should be disabled.
 ``dayParam``       | Name of the day parameter sent to the server on submit the hosting form.
 ``dayParamId``     | Id of the day parameter sent to the server on submit the hosting form.
@@ -450,7 +450,7 @@ Option              | Description
 :------------------ | :----------------------------------------------------------------------
 ``amPmParam``       | Name of the amPm parameter sent to the server on submit the hosting form.
 ``amPmValue``       | Value of the amPm.
-``cssClass``        | The css class to be applied to the nav bar search wrapper element.
+``cssClass``        | The css class to be applied to the input time wrapper element.
 ``dateParam``       | Name of the date parameter sent to the server on submit the hosting form.
 ``dateValue``       | Value of the date.
 ``disabled``        | Whether the input date should be disabled.
@@ -471,7 +471,8 @@ The [AlloyUI popover component](http://alloyui.com/examples/popover) is used eve
 
 ![](images/popover.png)
 
-```js
+```jsp
+<aui:script use="aui-popover">
 new Y.Popover({
     align: {
         node: '#triggerElement'
@@ -480,12 +481,64 @@ new Y.Popover({
     headerContent: 'Header content',
     trigger: '#triggerElement'
 }).render();
+</aui:script>
 ```
 
 > For more options available on Popover visit [AlloyUI popover component](http://alloyui.com/examples/popover) page.
 
-### Application display templates
-### Calendar
 ### Liferay panel
-### Paginator
-### Recycle bin
+
+Panel is used to group sections and display an accordion-like interface. A panel usually is wrapped by a `<liferay-ui:panel-container>` taglib containing one or more `<liferay-ui:panel>` items.
+
+![](images/panel-extended.png)
+
+```jsp
+<liferay-ui:panel-container extended="<%= true %>" id="jukebox">
+    <liferay-ui:panel collapsible="<%= true %>" id="panel1" title="panel1">
+        Panel 1
+    </liferay-ui:panel>
+    <liferay-ui:panel collapsible="<%= true %>" id="panel2" title="panel2">
+        Panel 2
+    </liferay-ui:panel>
+</liferay-ui:panel-container>
+```
+
+Another available style is to display a simpler panel, also known as a not extended panel. This could be set through `extended` option.
+
+![](images/panel.png)
+
+```jsp
+<liferay-ui:panel-container extended="<%= true %>" id="jukebox">
+    <liferay-ui:panel collapsible="<%= true %>" extended="<%= false %>" id="panel1" title="panel1">
+        Panel 1
+    </liferay-ui:panel>
+    <liferay-ui:panel collapsible="<%= true %>" extended="<%= false %>" id="panel2" title="panel2">
+        Panel 2
+    </liferay-ui:panel>
+</liferay-ui:panel-container>
+```
+
+Available `<liferay-ui:panel-container>` options:
+
+Option              | Description
+:------------------ | :----------------------------------------------------------------------
+``accordion``       | Whether the panel should behave like an accordion.
+``cssClass``        | The css class to be applied to the panel container wrapper element.
+``id``              | The id of the panel container element.
+
+Available `<liferay-ui:panel>` options:
+
+Option              | Description
+:------------------ | :----------------------------------------------------------------------
+``accordion``       | Whether the panel should behave like an accordion.
+``collapsible``     | Whether the panel should be collapsible.
+``cssClass``        | The css class to be applied to the panel wrapper element.
+``defaultState``    | Default state of the panel.
+``extended``        | Whether the panel should display the extended interface.
+``helpMessage``     | The help message displayed when hover the panel header.
+``iconCssClass``    | The icon css class to be displayed next to the title.
+``id``              | The id of the panel element.
+``parentId``        | The id of the panel parent element.
+``persistState``    | Whether the panel state should be persisted into the database.
+``state``           | Could be `open` or `closed`.
+``title``           | The title of the panel.
