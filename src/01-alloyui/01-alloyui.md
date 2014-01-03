@@ -137,6 +137,10 @@ Bootstrap also provides nice effects for images: rounding the borders, making th
 
 It's worth mentioning that, before you save the content, the WYSIWYG editor is not aware of Bootstrap, so just getting out of the "Source" mode won't be enough to preview your changes. What you can do is click the "Basic Preview" button at the top of the web content form. For more information check [this blog post](https://www.liferay.com/web/jorge.ferrer/blog/-/blogs/new-in-6-2-bootstrap-even-in-web-content) by Jorge Ferrer.
 
+### Font awesome icons
+
+TODO.
+
 ### Add panel
 
 The new add panel now provides ability to add content, applications and pages from the same place.
@@ -322,6 +326,38 @@ Option                  | Description
 ``jspPath``             | Path to be used as base path for the sections that requires server side. The file will match with the `categoriesName` value.
 ``showButtons``         | Whether submit and cancel buttons are shown.
 
+### Modal
+
+The previous Dialog of Liferay was totally revamped and now it is called Modal. It's based on [AlloyUI modal component](http://alloyui.com/examples/modal). In order to instantiate a new modal AlloyUI API could be used directly, although Liferay wraps some functionalities that are pretty handy, such as always keep the dialog maximized and centralized to the page. In order to inherit those presets available on Liferay we recommend to use `Liferay.Util.Window.getWindow`.
+
+![](images/modal.png)
+
+```js
+iferay.Util.Window.getWindow({
+    dialog: {
+        centered: true,
+        cssClass: 'jukebox-portlet',
+        height: 300,
+        modal: true,
+        resizable: false,
+        width: 500
+    },
+    title: Liferay.Language.get('my-portlet')
+});
+```
+Available `Liferay.Util.Window.getWindow` options:
+
+Option                  | Description
+:---------------------- | :----------------------------------------------------------------------
+``dialog.autoHeight``          | Whether the modal should automatically fits vertically to the viewport.
+``dialog.autoHeightRatio``     | Defines the ratio the modal height should take.
+``dialog.autoSizeNode``        | The node used to defines the dimensions of the modal.
+``dialog.autoWidth``           | Whether the modal should automatically fits horizontally to the viewport.
+``dialog.autoWidthRatio``      | Defines the ratio the modal with should take.
+``title``                      | The modal title.
+
+> Note that Liferay Modal extends [AlloyUI modal component](http://alloyui.com/examples/modal), therefore all options from the core component are also available to the `dialog` configuration passed to this API.
+
 ### Application display templates
 ### Calendar
 ### Input date
@@ -329,7 +365,6 @@ Option                  | Description
 ### Input time
 ### Liferay panel
 ### Mobile preview
-### Modal
 ### Paginator
 ### Popover
 ### Recycle bin
