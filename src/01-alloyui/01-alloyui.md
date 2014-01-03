@@ -370,12 +370,17 @@ When your entity field is defined as localized on `META-INF/portal-model-hints.x
 <aui:input name="title" />
 ```
 
+### Mobile device preview
+
+We cannot forget the importance of supporting mobile devices for the web portals. Liferay 6.2 comes with an awesome feature of mobile device preview. This feature helps the developer to perform a unit testing of the portal on different types of hand held devices like smart phones, tablets as well as desktop. This feature does not provide an accurate preview but at least major issues can be resolved before the portal is accessed.
+
+![](images/mobile-device-preview.png)
+
 ### Application display templates
 ### Calendar
 ### Input date
 ### Input time
 ### Liferay panel
-### Mobile preview
 ### Paginator
 ### Popover
 ### Recycle bin
