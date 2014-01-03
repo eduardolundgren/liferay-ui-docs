@@ -288,10 +288,42 @@ The Control Panel was introduced in Liferay 5.2 as a way to provide a central lo
 
 ![](images/control-panel.png)
 
+### Form navigator
+
+Form navigator provides ability to divide your content into sections. It uses Bootstrap tabs enhanced by AlloyUI JavaScript.
+
+![](images/form-navigator.png)
+
+```jsp
+<%
+String[] categoryNames = new String[] {"Section"};
+String[][] categorySections = { new String[] { "look-and-feel", "logo", "javascript", "mobile-device-rules" } };
+%>
+
+<liferay-ui:form-navigator
+    categoryNames="<%= categoryNames %>"
+    categorySections="<%= categorySections %>"
+    jspPath="/html/portlet/jukebox/"
+    showButtons="<%= true %>"
+/>
+```
+
+Available `<liferay-ui:form-navigator>` options:
+
+Option                  | Description
+:---------------------- | :-----------------------------------------------------------------------------------------------------------------------------
+``backURL``             | If the section redirects the page, this url will be used to be the destination when back button is clicked.
+``categorySections``    | Divide the categories into sections.
+``categoryNames``       | Name of the sections to display, each section name will match to a existing file into the `jspPath` folder.
+``displayStyle``        | When `panel` is passed will display a panel style, otherwise displays like tabs.
+``formName``            | The form name that wraps the form navigator.
+``htmlBottom``          | HTML string to be placed on the bottom of the form navigator.
+``htmlTop``             | HTML string to be placed on the top of the form navigator.
+``jspPath``             | Path to be used as base path for the sections that requires server side. The file will match with the `categoriesName` value.
+``showButtons``         | Whether submit and cancel buttons are shown.
+
 ### Application display templates
 ### Calendar
-### Font awesome icons
-### Form navigator
 ### Input date
 ### Input localized
 ### Input time
