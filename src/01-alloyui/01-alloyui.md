@@ -271,6 +271,14 @@ Option              | Description
 </aui:nav-bar>
 ```
 
+### Dockbar
+
+Dockbar is a very important portlet for Liferay administrators and developers as it has been evolving by adding more and more features with every new version. All the markup of the Dockbar comes from the Dockbar portlet, on the new version of Liferay it got split into two sections, the first one (top left blue bar) contains navigation menus, the second (right center, the light blue bar) contains the Add, Mobile preview and Edit shortcuts.
+
+![](images/dockbar.png)
+
+> Keep in mind the two sections of Dockbar comes from the same portlet and share the same HTML markup, the split visual style is all done in CSS by the theme through defining `.dockbar-split` css class, see [https://github.com/liferay/liferay-portal/blob/master/portal-web/docroot/html/themes/classic/css/dockbar.css#L400](https://github.com/liferay/liferay-portal/blob/master/portal-web/docroot/html/themes/classic/css/dockbar.css#L400) for more information.
+
 ### Control panel
 
 The Control Panel was introduced in Liferay 5.2 as a way to provide a central location to manage the whole portal, including all of its sites. Previously administrators had to build their own administration UI by manually adding portlets to pages. The goal was achieved with great success and almost all of the feedback has been very positive, although on the new version of Liferay the Control Panel was redesigned to make it more usable and versatile. The main changes were:
@@ -282,7 +290,6 @@ The Control Panel was introduced in Liferay 5.2 as a way to provide a central lo
 
 ### Application display templates
 ### Calendar
-### Dockbar
 ### Font awesome icons
 ### Form navigator
 ### Input date
