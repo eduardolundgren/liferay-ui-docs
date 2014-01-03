@@ -347,8 +347,8 @@ iferay.Util.Window.getWindow({
 ```
 Available `Liferay.Util.Window.getWindow` options:
 
-Option                  | Description
-:---------------------- | :----------------------------------------------------------------------
+Option                         | Description
+:----------------------------- | :----------------------------------------------------------------------
 ``dialog.autoHeight``          | Whether the modal should automatically fits vertically to the viewport.
 ``dialog.autoHeightRatio``     | Defines the ratio the modal height should take.
 ``dialog.autoSizeNode``        | The node used to defines the dimensions of the modal.
@@ -382,10 +382,60 @@ The search container feature is available since older Liferay versions and it is
 
 ![](images/search-container.png)
 
+### Input date
+
+The new input date is much more intuitive. It now allows the user to input dates in friendly way.
+
+![](images/input-date.png)
+
+When your entity field is defined as type date on `META-INF/portal-model-hints.xml` the `<aui:input>` taglib detects that and the field will be rendered as a date input. Another way to instantiate input date field is using `<liferay-ui:input-date>` taglib.
+
+```jsp
+<liferay-ui:input-date
+    dayParam="startDateDay"
+    dayValue="5"
+    disabled="<%= false %>"
+    firstDayOfWeek="1"
+    monthParam="startDateMonth"
+    monthValue="5"
+    name="startDate"
+    yearParam="startDateYear"
+    yearValue="2014"
+/>
+```
+
+Available `<liferay-ui:input-date>` options:
+
+Option             | Description
+:----------------- | :----------------------------------------------------------------------
+``cssClass``       | The css class to be applied to the nav bar search wrapper element.
+``disabled``       | Whether the input date should be disabled.
+``dayParam``       | Name of the day parameter sent to the server on submit the hosting form.
+``dayParamId``     | Id of the day parameter sent to the server on submit the hosting form.
+``dayValue``       | Value of the day.
+``monthParam``     | Name of the month parameter sent to the server on submit the hosting form.
+``monthParamId``   | Id of the month parameter sent to the server on submit the hosting form.
+``monthValue``     | Value of the month.
+``name``           | Name of the input that holds the friendly date.
+``yearParam``      | Name of the year parameter sent to the server on submit the hosting form.
+``yearParamId``    | Id of the year parameter sent to the server on submit the hosting form.
+``yearValue``      | Value of the year.
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Popover
 ### Application display templates
 ### Calendar
-### Input date
 ### Input time
 ### Liferay panel
 ### Paginator
