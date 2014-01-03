@@ -155,7 +155,7 @@ The new add panel now provides ability to add content, applications and pages fr
 
 ### Navbar
 
-In order to standardize navigation through the portal, one of the new components put in place is the new `<aui:nav-bar>`, `<aui:nav>` and `<aui:nav-item>` taglibs. Navbars are responsive meta components that serve as navigation headers for your application or site.
+In order to standardize navigation through the portal, one of the new components put in place is the new `<aui:nav-bar>`, `<aui:nav>` and `<aui:nav-item>`. Navbars are responsive meta components that serve as navigation headers for your application or site.
 
 ![](images/navbar.png)
 
@@ -167,9 +167,9 @@ In order to standardize navigation through the portal, one of the new components
 </aui:nav-bar>
 ```
 
-> Reference [jukebox/blob/master/sdk/portlets/jukebox-portlet/docroot/html/artists/toolbar.jsp#L25](https://github.com/eduardolundgren/jukebox/blob/master/sdk/portlets/jukebox-portlet/docroot/html/artists/toolbar.jsp#L25)
+> Reference [jukebox/blob/master/sdk/portlets/jukebox-portlet/docroot/html/artists/toolbar.jsp](https://github.com/eduardolundgren/jukebox/blob/master/sdk/portlets/jukebox-portlet/docroot/html/artists/toolbar.jsp)
 
-Other options can be passed to `<aui:nav-bar>`:
+Available `<aui:nav-bar>` options:
 
 Option              | Description
 :------------------ | :-----------------------------------------------------------------
@@ -190,7 +190,7 @@ Option              | Description
 ``searchContainer`` | A SearchContainer instance.
 ``useNamespace``    | Whether will use the portlet namespace on the element.
 
-Other options can be passed to `<aui:nav-item>`:
+Available `<aui:nav-item>` options:
 
 Option                  | Description
 :---------------------- | :-----------------------------------------------------------------
@@ -243,7 +243,6 @@ Like on previous versions of Liferay, this functionality uses a `<liferay-ui:sea
 <aui:nav-bar>
     <aui:nav-bar-search cssClass="pull-right">
         <div class="form-search">
-            ...
             <liferay-ui:search-toggle
                 buttonLabel="search"
                 displayTerms="<%= displayTerms %>"
@@ -259,9 +258,9 @@ Like on previous versions of Liferay, this functionality uses a `<liferay-ui:sea
 </aui:nav-bar>
 ```
 
-> Reference [jukebox/blob/master/sdk/portlets/jukebox-portlet/docroot/html/artists/toolbar.jsp#L25](https://github.com/eduardolundgren/jukebox/blob/master/sdk/portlets/jukebox-portlet/docroot/html/artists/toolbar.jsp#L25)
+> Reference [jukebox/blob/master/sdk/portlets/jukebox-portlet/docroot/html/artists/toolbar.jsp](https://github.com/eduardolundgren/jukebox/blob/master/sdk/portlets/jukebox-portlet/docroot/html/artists/toolbar.jsp)
 
-Other options can be passed to `<liferay-ui:search-toggle>`:
+Available `<liferay-ui:search-toggle>` options:
 
 Option              | Description
 :------------------ | :-----------------------------------------------------------------
