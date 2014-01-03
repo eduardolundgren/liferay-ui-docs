@@ -358,10 +358,21 @@ Option                  | Description
 
 > Note that Liferay Modal extends [AlloyUI modal component](http://alloyui.com/examples/modal), therefore all options from the core component are also available to the `dialog` configuration passed to this API.
 
+### Input localized
+
+A new localized input is also available with a more intuitive ans easy to use interface.
+
+![](images/input-localized.png)
+
+When your entity field is defined as localized on `META-INF/portal-model-hints.xml` the `<aui:input>` taglib detects that and the field will be rendered as a localized input.
+
+```jsp
+<aui:input name="title" />
+```
+
 ### Application display templates
 ### Calendar
 ### Input date
-### Input localized
 ### Input time
 ### Liferay panel
 ### Mobile preview
