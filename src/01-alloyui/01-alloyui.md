@@ -421,22 +421,49 @@ Option             | Description
 ``yearParamId``    | Id of the year parameter sent to the server on submit the hosting form.
 ``yearValue``      | Value of the year.
 
+### Input time
 
+The new input time is much more intuitive. It now allows the user to input time in friendly way.
 
+![](images/input-time.png)
 
+To instantiate input time field the `<liferay-ui:input-time>` taglib could be used.
 
+```jsp
+<liferay-ui:input-time
+    amPmParam="startDateAmPm"
+    amPmValue="<%= 0 %>"
+    dateParam="startDateTime"
+    dateValue="<%= new Date().getTime() %>"
+    disabled="<%= false %>"
+    hourParam="startDateHour"
+    hourValue="10"
+    minuteParam="startDateMinute"
+    minuteValue="30"
+    name="startTime"
+/>
+```
 
+Available `<liferay-ui:input-time>` options:
 
-
-
-
-
-
+Option              | Description
+:------------------ | :----------------------------------------------------------------------
+``amPmParam``       | Name of the amPm parameter sent to the server on submit the hosting form.
+``amPmValue``       | Value of the amPm.
+``cssClass``        | The css class to be applied to the nav bar search wrapper element.
+``dateParam``       | Name of the date parameter sent to the server on submit the hosting form.
+``dateValue``       | Value of the date.
+``disabled``        | Whether the input date should be disabled.
+``hourParam``       | Name of the hour parameter sent to the server on submit the hosting form.
+``hourValue``       | Value of the hour.
+``minuteInterval``  | Value of the amPm.
+``minuteParam``     | Name of the minute parameter sent to the server on submit the hosting form.
+``minuteValue``     | Value of the minute.
+``name``            | Name of the input that holds the friendly date.
 
 ### Popover
 ### Application display templates
 ### Calendar
-### Input time
 ### Liferay panel
 ### Paginator
 ### Recycle bin
