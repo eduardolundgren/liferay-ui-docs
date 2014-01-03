@@ -376,13 +376,19 @@ We cannot forget the importance of supporting mobile devices for the web portals
 
 ![](images/mobile-device-preview.png)
 
+### Search container
+
+The search container feature is available since older Liferay versions and it is responsible for rendering tables using an easy API that integrates with the server side data. On Liferay 6.2 it was restyled and now uses Bootstrap table styles.
+
+![](images/search-container.png)
+
+### Popover
 ### Application display templates
 ### Calendar
 ### Input date
 ### Input time
 ### Liferay panel
 ### Paginator
-### Popover
 ### Recycle bin
 ### Search container
 ### Tooltip
