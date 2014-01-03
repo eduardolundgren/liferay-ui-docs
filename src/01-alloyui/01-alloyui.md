@@ -241,13 +241,9 @@ Like on previous versions of Liferay, this functionality uses a `<liferay-ui:sea
 
 ```jsp
 <aui:nav-bar>
-    <aui:nav-bar-search cssClass="pull-right">
+    <aui:nav-bar-search>
         <div class="form-search">
-            <liferay-ui:search-toggle
-                buttonLabel="search"
-                displayTerms="<%= displayTerms %>"
-                id="<%= renderResponse.getNamespace() %>"
-            >
+            <liferay-ui:search-toggle buttonLabel="search">
                 <aui:fieldset>
                     <aui:input label="name" />
                     <aui:input name="bio" />
@@ -260,7 +256,7 @@ Like on previous versions of Liferay, this functionality uses a `<liferay-ui:sea
 
 > Reference [jukebox/blob/master/sdk/portlets/jukebox-portlet/docroot/html/artists/toolbar.jsp](https://github.com/eduardolundgren/jukebox/blob/master/sdk/portlets/jukebox-portlet/docroot/html/artists/toolbar.jsp)
 
-Available `<liferay-ui:search-toggle>` options:
+Available `<aui:nav-bar-search>` options:
 
 Option              | Description
 :------------------ | :-----------------------------------------------------------------
@@ -275,9 +271,17 @@ Option              | Description
 </aui:nav-bar>
 ```
 
+### Control panel
+
+The Control Panel was introduced in Liferay 5.2 as a way to provide a central location to manage the whole portal, including all of its sites. Previously administrators had to build their own administration UI by manually adding portlets to pages. The goal was achieved with great success and almost all of the feedback has been very positive, although on the new version of Liferay the Control Panel was redesigned to make it more usable and versatile. The main changes were:
+
+* Extract the "My Account" administration out of the Control Panel.
+* Extract "Site Administration" outside of the Control Panel
+
+![](images/control-panel.png)
+
 ### Application display templates
 ### Calendar
-### Control panel
 ### Dockbar
 ### Font awesome icons
 ### Form navigator
