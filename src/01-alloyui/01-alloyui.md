@@ -651,3 +651,50 @@ Class                 | Phones (767px and below) | Tablets (979px to 768px) | De
 `.hidden-phone`       | Hidden                   | **Visible**              | **Visible**
 `.hidden-tablet`      | **Visible**              | Hidden                   | **Visible**
 `.hidden-desktop`     | **Visible**              | **Visible**              | Hidden
+
+## How to use layout features on portlets?
+
+Liferay popular `<aui:layout>`, `<aui:column>` are deprecated on Liferay 6.2 since they still use old AlloyUI grid system.
+
+```jsp
+<aui:layout>
+    <aui:column columnWidth="25">
+        <liferay-util:include page="/html/portlet/jukebox/column1.jsp" />
+    </aui:column>
+    <aui:column columnWidth="75">
+        <liferay-util:include page="/html/portlet/jukebox/column2.jsp" />
+    </aui:column>
+</aui:layout>
+```
+
+In order to have full advantage of Bootstrap on your layouts you should use the brand new `<aui:row>` and `<aui:col>` taglibs, which provides a very similar API, see the following example of the new taglibs.
+
+```jsp
+<aui:row>
+    <aui:col width="25">
+        <liferay-util:include page="/html/portlet/jukebox/column1.jsp" />
+    </aui:col>
+    <aui:col width="75">
+        <liferay-util:include page="/html/portlet/jukebox/column2.jsp" />
+    </aui:col>
+</aui:row>
+```
+
+Available `<aui:row>` options:
+
+Option              | Description
+:------------------ | :-----------------------------------------------------------------
+``cssClass``        | The css class to be applied to the row wrapper element.
+``id``              | A custom id to be applied on the row wrapper element.
+``fluid``           | Whether the column should be `.row-fluid`.
+
+Available `<aui:col>` options:
+
+Option              | Description
+:------------------ | :-----------------------------------------------------------------
+``cssClass``        | The css class to be applied to the column wrapper element.
+``id``              | A custom id to be applied on the column wrapper element.
+``offset``          | Move columns to the right using `.offset*` classes.
+``offsetWidth``     | Move the columns to the right using percentage, it converts the percentage to the closest `.offset*` value.
+``span``            | As this is a 12-column grid, each `.span*` spans a number of those 12 columns, and should always add up to 12 for each row (or the number of columns in the parent).
+``width``           | Width in percentage that the column should be, it converts the percentage to the closest `.span*` value.
