@@ -542,3 +542,112 @@ Option              | Description
 ``persistState``    | Whether the panel state should be persisted into the database.
 ``state``           | Could be `open` or `closed`.
 ``title``           | The title of the panel.
+
+# Layout templates
+
+In order to organize how the portal is going to display portlets into rows and columns Liferay provides a flexible way to create layout templates. In previous versions of Liferay AlloyUI 1.0 CSS grid system were used. Ad example, let's compare the `2_columns_i.tpl` from Liferay 6.1 with 6.2.
+
+```jsp
+<div class="columns-2" id="main-content" role="main">
+    #if ($browserSniffer.isIe($request) && $browserSniffer.getMajorVersion($request) < 8)
+        <table class="portlet-layout">
+        <tr>
+            <td class="aui-w50 portlet-column portlet-column-first" id="column-1">
+                $processor.processColumn("column-1", "portlet-column-content portlet-column-content-first")
+            </td>
+            <td class="aui-w50 portlet-column portlet-column-last" id="column-2">
+                $processor.processColumn("column-2", "portlet-column-content portlet-column-content-last")
+            </td>
+        </tr>
+        </table>
+    #else
+        <div class="portlet-layout">
+            <div class="aui-w50 portlet-column portlet-column-first" id="column-1">
+                $processor.processColumn("column-1", "portlet-column-content portlet-column-content-first")
+            </div>
+
+            <div class="aui-w50 portlet-column portlet-column-last" id="column-2">
+                $processor.processColumn("column-2", "portlet-column-content portlet-column-content-last")
+            </div>
+        </div>
+    #end
+</div>
+```
+
+> Liferay 6.1 `2_columns_i.tpl` layout template uses AlloyUI 1.0 CSS grid system, note the usage of `aui-w*`.
+
+On Liferay 6.2 [Twitter Bootstrap's](http://liferay.github.io/alloy-bootstrap) [layouts](http://liferay.github.io/alloy-bootstrap/scaffolding.html#layouts), [grid system](http://liferay.github.io/alloy-bootstrap/scaffolding.html#gridSystem) and [fluid grid system](http://liferay.github.io/alloy-bootstrap/scaffolding.html#fluidGridSystem) are fully available. Other advantage of using Bootstrap layout capabilities is responsive web design features, for instance, on smaller screens, like those of phones, the columns will become fluid and display below each other automatically.
+
+```jsp
+<div class="columns-1-2-1" id="main-content" role="main">
+    <div class="portlet-layout row-fluid">
+        <div class="portlet-column portlet-column-only span12" id="column-1">
+            $processor.processColumn("column-1", "portlet-column-content portlet-column-content-only")
+        </div>
+    </div>
+
+    <div class="portlet-layout row-fluid">
+        <div class="portlet-column portlet-column-first span8" id="column-2">
+            $processor.processColumn("column-2", "portlet-column-content portlet-column-content-first")
+        </div>
+
+        <div class="portlet-column portlet-column-last span4" id="column-3">
+            $processor.processColumn("column-3", "portlet-column-content portlet-column-content-last")
+        </div>
+    </div>
+
+    <div class="portlet-layout row-fluid">
+        <div class="portlet-column portlet-column-only span12" id="column-4">
+            $processor.processColumn("column-4", "portlet-column-content portlet-column-content-only")
+        </div>
+    </div>
+</div>
+```
+
+> Liferay 6.2 `2_columns_i.tpl` layout template uses [Twitter Bootstrap's](http://liferay.github.io/alloy-bootstrap) [layouts](http://liferay.github.io/alloy-bootstrap/scaffolding.html#layouts), [grid system](http://liferay.github.io/alloy-bootstrap/scaffolding.html#gridSystem) and [fluid grid system](http://liferay.github.io/alloy-bootstrap/scaffolding.html#fluidGridSystem), note the usage of `row-fluid` and `span*`.
+
+## Fixed layouts
+
+In order to create fixed layouts, Bootstrap provides a common fixed-width (and optionally responsive) layout with only `<div class="container">` required.
+
+![](images/fixed-layout.png)
+
+```html
+<body>
+  <div class="container">
+    ...
+  </div>
+</body>
+```
+
+## Fluid layouts
+
+To create a fluid, two-column page with `<div class="container-fluid">` — great for applications and docs.
+
+![](images/fluid-layout.png)
+
+```html
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <!--Sidebar content-->
+    </div>
+    <div class="span10">
+      <!--Body content-->
+    </div>
+  </div>
+</div>
+```
+
+## Responsive utility classes
+
+For faster mobile-friendly development, use these utility classes for showing and hiding content by device. Below is a table of the available classes and their effect on a given media query layout (labeled by device). They are already included in Liferay portal. For more reference check [Twitter Bootstrap's responsive](http://liferay.github.io/alloy-bootstrap/scaffolding.html#responsive) documentation.
+
+Class                 | Phones (767px and below) | Tablets (979px to 768px) | Desktops (Default)
+:-------------------- | :-------------------------------------------------------------------
+`.visible-phone`      | **Visible**              | Hidden                   | Hidden
+`.visible-tablet`     | Hidden                   | **Visible**              | Hidden
+`.visible-desktop`    | Hidden                   | Hidden                   | **Visible**
+`.hidden-phone`       | Hidden                   | **Visible**              | **Visible**
+`.hidden-tablet`      | **Visible**              | Hidden                   | **Visible**
+`.hidden-desktop`     | **Visible**              | **Visible**              | Hidden
