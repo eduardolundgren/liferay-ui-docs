@@ -698,3 +698,43 @@ Option              | Description
 ``offsetWidth``     | Move the columns to the right using percentage, it converts the percentage to the closest `.offset*` value.
 ``span``            | As this is a 12-column grid, each `.span*` spans a number of those 12 columns, and should always add up to 12 for each row (or the number of columns in the parent).
 ``width``           | Width in percentage that the column should be, it converts the percentage to the closest `.span*` value.
+
+# Building a theme
+
+Liferay and AlloyUI uses a 1:1 translation from Less to [Sass](http://sass-lang.com) available on [alloy-bootstrap](https://github.com/liferay/alloy-bootstrap) repository, also adds minimal extra style definitions. The new Liferay classic theme uses Bootstrap core files in order to be generated. This flexibility brings powerful capabilities to Liferay since during the theme development it is possible to redefine parts of Bootstrap core before compile the generated CSS file, for example, tweak the variables  on Bootstrap file that defines base colors for Bootstrap.
+
+## Theme architecture
+
+## Create a theme
+
+Navigate to the material on the folder `liferay-client-park-group/liferay-plugins-sdk-6.2.0/themes/park-theme/` previously created for you.
+
+![](images/create-theme.png)
+
+Deploy the theme in order to Liferay copy the files from the parent theme. Once it's deployed the theme folder will look like this:
+
+![](images/theme-structure.png)
+
+File                        | Description
+:-------------------------- | :-----------------------------------------------------------------------------------------------------
+``aui``                     | This contains a copy of [AlloyUI Twitter Bootstrap's](http://liferay.github.io/alloy-bootstrap) theme.
+``_aui_custom.scss``        | Custom file to overwrite AlloyUI CSS classes.
+``_aui_variables.scss``     | Custom file to overwrite AlloyUI theme variables.
+``_liferay_custom.scss``    | Custom file to overwrite Liferay CSS classes.
+
+It's possible to customize the theme in the SASS level, that means that you can overwrite, extend or customize any of the AlloyUI CSS classes, including Bootstrap's. Let's see it in action.
+
+![](images/theme-normal.png)
+
+On the created theme, copy `_aui_variables.scss` to `_diffs/css/` folder and modify the value of the following two variables.
+
+```scss
+...
+$navbarBackground: #FF0000;
+$navbarBackgroundHighlight: #FF0000;
+...
+```
+
+Redeploy your theme and notice that it redefined the background color of all navbar components. You can feel free to use any [Sass](http://sass-lang.com) feature to extend the existing functionality available on the theme.
+
+![](images/theme-modified.png)
