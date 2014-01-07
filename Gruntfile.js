@@ -39,7 +39,7 @@ module.exports = function(grunt) {
         },
 
         jsbeautifier: {
-            files: ['dest/**/*.html'],
+            // files: ['dest/**/*.html'],
             options: {
                 html: {
                     indentChar: ' ',
