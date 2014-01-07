@@ -139,7 +139,7 @@ It's worth mentioning that, before you save the content, the WYSIWYG editor is n
 
 ### Font awesome icons
 
-TODO.
+Liferay Portal 6.2 ships with [its own version](https://github.com/liferay/alloy-font-awesome) of [Font Awesome](http://fortawesome.github.io/Font-Awesome). Font Awesome is a full suite of 361 pictographic icons for easy scalable vector graphics on websites.
 
 ### Add panel
 
