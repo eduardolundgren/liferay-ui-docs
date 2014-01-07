@@ -1,3 +1,7 @@
+> Park Group Plc - Liferay UI Migration Consulting
+
+> Eduardo Lundgren, Birkenhead - UK, January, 2014.
+
 # AlloyUI
 
 ## What is AlloyUI?
