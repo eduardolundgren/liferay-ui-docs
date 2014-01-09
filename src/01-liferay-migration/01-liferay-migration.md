@@ -333,7 +333,7 @@ The previous Dialog of Liferay was totally revamped and now it is called Modal. 
 ![](images/modal.png)
 
 ```js
-iferay.Util.Window.getWindow({
+Liferay.Util.Window.getWindow({
     dialog: {
         centered: true,
         cssClass: 'jukebox-portlet',
