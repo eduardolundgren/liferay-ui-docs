@@ -515,12 +515,17 @@ The [AlloyUI popover component](http://alloyui.com/examples/popover) is used eve
 
 ```jsp
 <aui:script use="aui-popover">
-new Y.Popover({
+new A.Popover({
     align: {
         node: '#triggerElement'
     },
-    bodyContent: 'One fine body…',
-    headerContent: 'Header content',
+    toolbars: {
+        header: [
+            { label: 'Save', primary: true, icon:'icon-heart' },
+            { label: 'Cancel' }
+        ]
+    },
+    bodyContent: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
     trigger: '#triggerElement'
 }).render();
 </aui:script>
