@@ -507,10 +507,6 @@ Option              | Description
 ``minuteValue``     | Value of the minute.
 ``name``            | Name of the input that holds the friendly date.
 
-### Tooltip
-
-
-
 ### Popover
 
 The [AlloyUI popover component](http://alloyui.com/examples/popover) is used everywhere in the new Liferay interface. Currently there is no wrapper for the AlloyUI popover API, so feel free to copy the examples from the website and use in Liferay.
