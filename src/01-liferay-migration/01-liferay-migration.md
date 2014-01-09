@@ -768,7 +768,7 @@ File                        | Description
 ``_aui_custom.scss``        | Custom file to overwrite AlloyUI CSS classes.
 ``_aui_variables.scss``     | Custom file to overwrite AlloyUI theme variables.
 ``_liferay_custom.scss``    | Custom file to overwrite Liferay CSS classes.
-
+ If you are extending Bootstrap css classes or variables you should do inside this file, not `custom.css`.
 It's possible to customize the theme in the SASS level, that means that you can overwrite, extend or customize any of the AlloyUI CSS classes, including Bootstrap's. Let's see it in action.
 
 ![](images/theme-normal.png)
