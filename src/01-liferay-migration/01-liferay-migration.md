@@ -480,7 +480,7 @@ To instantiate input time field the `<liferay-ui:input-time>` taglib could be us
     amPmParam="startDateAmPm"
     amPmValue="<%= 0 %>"
     dateParam="startDateTime"
-    dateValue="<%= new Date().getTime() %>"
+    dateValue="<%= new Date() %>"
     disabled="<%= false %>"
     hourParam="startDateHour"
     hourValue="10"
