@@ -792,7 +792,7 @@ Liferay 6.2 uses Twitter® Bootstrap-based theming for a slick, vibrant look and
 
 Here is an outline of the types of changes you'll need to understand and handle in migrating your plugins:
 
-* Removal of the “aui-” prefixes from all classes
+* Removal of the 'aui-' prefixes from all classes
 * Module deprecations
 * CSS classes replaced with Bootstrap equivalents
 * Component output and markup changes
