@@ -401,6 +401,31 @@ We cannot forget the importance of supporting mobile devices for the web portals
 
 The search container feature is available since older Liferay versions and it is responsible for rendering tables using an easy API that integrates with the server side data. On Liferay 6.2 it was restyled and now uses Bootstrap table styles.
 
+```jsp
+<liferay-ui:search-container
+    emptyResultsMessage="there-are-no-entries"
+    total="100"
+>
+
+    <liferay-ui:search-container-results
+        results="<%= JukeboxServiceUtil.search(...) %>"
+    />
+
+    <liferay-ui:search-container-row
+        className="com.liferay.jukebox.model.Artist"
+        keyProperty="artistId"
+        modelVar="artist"
+    >
+        <liferay-ui:search-container-column-text
+            name="name"
+            value="<%= HtmlUtil.escape(artist.getName(locale)) %>"
+        />
+    </liferay-ui:search-container-row>
+
+    <liferay-ui:search-iterator />
+</liferay-ui:search-container>
+```
+
 ![](images/search-container.png)
 
 ### Input date
