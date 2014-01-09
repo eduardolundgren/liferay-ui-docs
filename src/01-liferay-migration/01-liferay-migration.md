@@ -786,6 +786,28 @@ Redeploy your theme and notice that it redefined the background color of all nav
 
 ![](images/theme-modified.png)
 
+> Keep in mind you can use all features of [Compass](http://compass-style.org/) inside your Liferay theme.
+
+# Acessing Liferay Services via JSONWS
+
+Liferay can expose any generated entity via a nice and wasy to use web services API. To discover what is available open [http://localhost:8080/api/jsonws](http://localhost:8080/api/jsonws) on your Liferay instance.
+
+```js
+Liferay.Service({
+    "$user[firstName,emailAddress] = /user/get-user-by-id": {
+        "userId": 10201,
+        "$contact = /contact/get-contact-by-id": {
+            "@contactId" : "$user.contactId"
+        }
+    }
+},
+function(obj) {
+   console.log(obj)
+});
+```
+
+> For more information visit the documentation [https://www.liferay.com/pt/documentation/liferay-portal/6.1/development/-/ai/json-web-services](https://www.liferay.com/pt/documentation/liferay-portal/6.1/development/-/ai/json-web-services).
+
 # Upgrade secrets for Liferay UI
 
 Liferay 6.2 uses Twitter® Bootstrap-based theming for a slick, vibrant look and feel with instant access to the Twitter® Bootstrap (Bootstrap) theme library. But there are a number of changes that needed to be made to AlloyUI in order to accommodate and properly use Bootstrap. In this section, we'll explain the reasoning behind the changes to AlloyUI and we'll explain how to migrate plugins to use AlloyUI 2.0 and Bootstrap.
