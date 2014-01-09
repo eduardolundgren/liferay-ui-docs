@@ -337,7 +337,7 @@ The previous Dialog of Liferay was totally revamped and now it is called Modal. 
 ![](images/modal.png)
 
 ```js
-iferay.Util.Window.getWindow({
+Liferay.Util.Window.getWindow({
     dialog: {
         centered: true,
         cssClass: 'jukebox-portlet',
@@ -362,6 +362,27 @@ Option                         | Description
 
 > Note that Liferay Modal extends [AlloyUI modal component](http://alloyui.com/examples/modal), therefore all options from the core component are also available to the `dialog` configuration passed to this API.
 
+
+### Localization
+
+You have several ways to display a localized string in Liferay. The first one is using `<liferay-ui:message />` taglib:
+
+```jsp
+<liferay-ui:message key="x-albums" />
+```
+
+```jsp
+<liferay-ui:message arguments="1000" key="x-albums" />
+```
+
+Or via JavaScript API:
+
+```js
+    var message = Liferay.Language.get('x-albums');
+
+    alert( A.Lang.sub(message, { 0: '1000' }) );
+```
+
 ### Input localized
 
 A new localized input is also available with a more intuitive ans easy to use interface.
@@ -383,6 +404,31 @@ We cannot forget the importance of supporting mobile devices for the web portals
 ### Search container
 
 The search container feature is available since older Liferay versions and it is responsible for rendering tables using an easy API that integrates with the server side data. On Liferay 6.2 it was restyled and now uses Bootstrap table styles.
+
+```jsp
+<liferay-ui:search-container
+    emptyResultsMessage="there-are-no-entries"
+    total="100"
+>
+
+    <liferay-ui:search-container-results
+        results="<%= JukeboxServiceUtil.search(...) %>"
+    />
+
+    <liferay-ui:search-container-row
+        className="com.liferay.jukebox.model.Artist"
+        keyProperty="artistId"
+        modelVar="artist"
+    >
+        <liferay-ui:search-container-column-text
+            name="name"
+            value="<%= HtmlUtil.escape(artist.getName(locale)) %>"
+        />
+    </liferay-ui:search-container-row>
+
+    <liferay-ui:search-iterator />
+</liferay-ui:search-container>
+```
 
 ![](images/search-container.png)
 
@@ -438,7 +484,7 @@ To instantiate input time field the `<liferay-ui:input-time>` taglib could be us
     amPmParam="startDateAmPm"
     amPmValue="<%= 0 %>"
     dateParam="startDateTime"
-    dateValue="<%= new Date().getTime() %>"
+    dateValue="<%= new Date() %>"
     disabled="<%= false %>"
     hourParam="startDateHour"
     hourValue="10"
@@ -465,10 +511,6 @@ Option              | Description
 ``minuteValue``     | Value of the minute.
 ``name``            | Name of the input that holds the friendly date.
 
-### Tooltip
-
-
-
 ### Popover
 
 The [AlloyUI popover component](http://alloyui.com/examples/popover) is used everywhere in the new Liferay interface. Currently there is no wrapper for the AlloyUI popover API, so feel free to copy the examples from the website and use in Liferay.
@@ -477,12 +519,17 @@ The [AlloyUI popover component](http://alloyui.com/examples/popover) is used eve
 
 ```jsp
 <aui:script use="aui-popover">
-new Y.Popover({
+new A.Popover({
     align: {
         node: '#triggerElement'
     },
-    bodyContent: 'One fine body…',
-    headerContent: 'Header content',
+    toolbars: {
+        header: [
+            { label: 'Save', primary: true, icon:'icon-heart' },
+            { label: 'Cancel' }
+        ]
+    },
+    bodyContent: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
     trigger: '#triggerElement'
 }).render();
 </aui:script>
@@ -725,7 +772,7 @@ File                        | Description
 ``_aui_custom.scss``        | Custom file to overwrite AlloyUI CSS classes.
 ``_aui_variables.scss``     | Custom file to overwrite AlloyUI theme variables.
 ``_liferay_custom.scss``    | Custom file to overwrite Liferay CSS classes.
-
+ If you are extending Bootstrap css classes or variables you should do inside this file, not `custom.css`.
 It's possible to customize the theme in the SASS level, that means that you can overwrite, extend or customize any of the AlloyUI CSS classes, including Bootstrap's. Let's see it in action.
 
 ![](images/theme-normal.png)
@@ -743,13 +790,35 @@ Redeploy your theme and notice that it redefined the background color of all nav
 
 ![](images/theme-modified.png)
 
+> Keep in mind you can use all features of [Compass](http://compass-style.org/) inside your Liferay theme.
+
+# Acessing Liferay Services via JSONWS
+
+Liferay can expose any generated entity via a nice and wasy to use web services API. To discover what is available open [http://localhost:8080/api/jsonws](http://localhost:8080/api/jsonws) on your Liferay instance.
+
+```js
+Liferay.Service({
+    "$user[firstName,emailAddress] = /user/get-user-by-id": {
+        "userId": 10201,
+        "$contact = /contact/get-contact-by-id": {
+            "@contactId" : "$user.contactId"
+        }
+    }
+},
+function(obj) {
+   console.log(obj)
+});
+```
+
+> For more information visit the documentation [https://www.liferay.com/pt/documentation/liferay-portal/6.1/development/-/ai/json-web-services](https://www.liferay.com/pt/documentation/liferay-portal/6.1/development/-/ai/json-web-services).
+
 # Upgrade secrets for Liferay UI
 
 Liferay 6.2 uses Twitter® Bootstrap-based theming for a slick, vibrant look and feel with instant access to the Twitter® Bootstrap (Bootstrap) theme library. But there are a number of changes that needed to be made to AlloyUI in order to accommodate and properly use Bootstrap. In this section, we'll explain the reasoning behind the changes to AlloyUI and we'll explain how to migrate plugins to use AlloyUI 2.0 and Bootstrap.
 
 Here is an outline of the types of changes you'll need to understand and handle in migrating your plugins:
 
-* Removal of the “aui-” prefixes from all classes
+* Removal of the 'aui-' prefixes from all classes
 * Module deprecations
 * CSS classes replaced with Bootstrap equivalents
 * Component output and markup changes
