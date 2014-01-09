@@ -358,6 +358,27 @@ Option                         | Description
 
 > Note that Liferay Modal extends [AlloyUI modal component](http://alloyui.com/examples/modal), therefore all options from the core component are also available to the `dialog` configuration passed to this API.
 
+
+### Localization
+
+You have several ways to display a localized string in Liferay. The first one is using `<liferay-ui:message />` taglib:
+
+```jsp
+<liferay-ui:message key="x-albums" />
+```
+
+```jsp
+<liferay-ui:message arguments="1000" key="x-albums" />
+```
+
+Or via JavaScript API:
+
+```js
+    var message = Liferay.Language.get('x-albums');
+
+    alert( A.Lang.sub(message, { 0: '1000' }) );
+```
+
 ### Input localized
 
 A new localized input is also available with a more intuitive ans easy to use interface.
